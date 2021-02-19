@@ -1,0 +1,44 @@
+CREATE TABLE enterprise( EnterpriseId INT AUTO_INCREMENT, FirstName VARCHAR(120), LastName VARCHAR(120), Country INT, State INT, Pin INT, ContactNumber VARCHAR(60), EmaiId VARCHAR(120), CreatedOn DATETIME DEFAULT CURRENT_TIMESTAMP, UpdatedOn DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP, CreatedBy INT, Addresss VARCHAR(255), ActiveStatus VARCHAR(255), JsonParam LONGTEXT, PRIMARY KEY(EnterpriseId) )
+
+
+CREATE TABLE contest( ContestId INT AUTO_INCREMENT, Contestname VARCHAR(120), ContestDescription VARCHAR(255), StartDate DATETIME DEFAULT NULL, Enddate DATETIME DEFAULT NULL, NumberOfTeams INT, FORMAT VARCHAR(120), CreateDate DATETIME DEFAULT CURRENT_TIMESTAMP, CreatedBy INT, ContestType INT COMMENT "select from contest type table", TeamSize INT, ContestJsonData LONGTEXT, PRIMARY KEY(ContestId) )
+
+CREATE TABLE teammanagement( TeamId INT AUTO_INCREMENT, TeamName VARCHAR(120), TeamLogo LONGTEXT, TeamDescription VARCHAR(255), CreateDate DATETIME DEFAULT CURRENT_TIMESTAMP, CreatedBy INT, UpdatedBy INT, UpdatedOn DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP, TeamjsonData LONGTEXT, PRIMARY KEY(TeamId) )
+
+CREATE TABLE teamPlayerManagement( TeamManagementId INT AUTO_INCREMENT, TeamManagementDetails VARCHAR(255), TeamName INT COMMENT "data from team table", TeamPlayerName VARCHAR(255), TeamMemberJsonData LONGTEXT, PRIMARY KEY(TeamManagementId) )
+
+CREATE TABLE playerManagement( PlayerId INT AUTO_INCREMENT, PlayerName VARCHAR(255), PlayerContactNum VARCHAR(120), PlayerEmaiId VARCHAR(120), PlayerDOB DATETIME DEFAULT NULL, PlayerActivityStatus INT, PlayerJsonData LONGTEXT, PRIMARY KEY(PlayerID) )
+
+CREATE TABLE gameManagement( GameId INT AUTO_INCREMENT, GameName VARCHAR(120), TeamOne INT COMMENT "select from teammanagement", TeamTwo INT COMMENT "select from teammanagement", GameDate DATETIME DEFAULT NULL, GameTime DATETIME DEFAULT NULL, GameWinner VARCHAR(120), GameJsonData LONGTEXT, PRIMARY KEY(GameId) )
+
+CREATE TABLE ScoreBoard( ContestId INT AUTO_INCREMENT, GameId INT COMMENT 'data from game table', TeamId INT COMMENT "data from team table", ScoreBoardsJson LONGTEXT, PRIMARY KEY(ContestId) )
+
+
+##############  this table need to be discussed  ##################
+
+7) PlayerPreformance
+a. GameId
+b. PlayerID
+c. Playerscore
+d. PlayerWicket
+e. PlayerCatches
+f. PlayerBallsPlayed
+g. PlayerOverBowled
+h. PlayerRunOut
+i. PlayerRunRate
+j. PlayerPoints
+k. GamePerJSon
+
+
+
+http://apply.simulearning.com/ajax/createUser
+
+user_Fname : 'enter some valid value'
+user_Lname : 'enter some valid value'
+user_Email : 'enter some valid value'
+user_UserName : 'enter some valid value'
+user_Phone : 'enter some valid value'
+user_PasswordEncrypt : 'enter some valid value'
+user_PasswordEncrypt_re : 'enter some valid value'
+
+method must be POST
